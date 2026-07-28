@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechStore - Catálogo Digital</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header class="header">
+    <a href="#" class="logo-link">
+        <img src="img/logo-techstore.png" alt="TechStore Logo" class="site-logo">
+    </a>
+    <nav>
+        <a href="#">Inicio</a>
+        <a href="#">Catálogo</a>
+        <a href="#">Contacto</a>
+    </nav>
+</header>
+
+    <main class="main-content">
+        <section class="intro">
+            <h2>Catálogo de Productos Tecnológicos</h2>
+            <p>En <strong>TechStore</strong> comercializamos soluciones tecnológicas de las mejores marcas. Desde equipos de cómputo y periféricos hasta dispositivos móviles y accesorios, garantizamos calidad y rendimiento. Consulta nuestro catálogo en tiempo real y descubre todo lo que tenemos para ofrecerte.</p>
+        </section>
+
+        <section class="controls">
+            <input type="text" id="searchInput" placeholder="Buscar producto por nombre...">
+
+            <select id="categoryFilter">
+                <option value="Todos">Todas las categorías</option>
+                <option value="Computadores">Computadores</option>
+                <option value="Periféricos">Periféricos</option>
+                <option value="Celulares">Celulares</option>
+                <option value="Accesorios">Accesorios</option>
+                <option value="Componentes">Componentes</option>
+                <option value="Almacenamiento">Almacenamiento</option>
+            </select>
+
+            <button id="btnToggleView">Ver en Tabla</button>
+            <button id="btnAvailable">Solo Disponibles</button>
+
+            <p class="counter">Productos mostrados: <span id="productCount">0</span></p>
+        </section>
+
+        <section id="productContainer" class="product-grid">
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Estudiante: Jhon Fredy Castrillón Torres | Grupo: Globant | Año: 2026</p>
+        <p>Institución: Cesde</p>
+    </footer>
+
+    <script src="data/productos.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

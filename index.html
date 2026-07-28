@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TechStore - Catálogo Digital</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="header-contenido">
+        <div class="logo-titulo">
+          <img src="img/logo.svg" alt="TechStore Logo" class="logo" />
+          <h1>TechStore</h1>
+        </div>
+        <p class="subtitulo">Catálogo de Productos Tecnológicos</p>
+        <nav>
+          <a href="#catalogo">Catálogo</a>
+          <a href="#contacto">Contacto</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="descripcion">
+        <h2>Sobre nosotros</h2>
+        <p>
+          <strong>TechStore</strong> es una empresa dedicada a la
+          comercialización de productos tecnológicos. Ofrecemos computadores,
+          periféricos, dispositivos móviles, accesorios y componentes de las
+          mejores marcas del mercado, con precios competitivos y atención
+          personalizada.
+        </p>
+      </section>
+
+      <section id="catalogo">
+        <h2>Nuestro Catálogo</h2>
+        <p id="contador">Cargando productos...</p>
+
+        <div class="controles">
+          <input
+            type="text"
+            id="busqueda"
+            placeholder="Buscar producto por nombre..."
+          />
+          <select id="filtroCategoria">
+            <option value="todas">Todas las categorías</option>
+            <option value="Computadores">Computadores</option>
+            <option value="Periféricos">Periféricos</option>
+            <option value="Celulares">Celulares</option>
+            <option value="Accesorios">Accesorios</option>
+            <option value="Almacenamiento">Almacenamiento</option>
+            <option value="Componentes">Componentes</option>
+          </select>
+        </div>
+
+        <div id="contenedor-productos"></div>
+      </section>
+    </main>
+
+    <div id="modal-detalle" class="modal oculto">
+      <div class="modal-contenido">
+        <button id="cerrar-modal" class="boton-cerrar">&times;</button>
+        <div id="modal-body"></div>
+      </div>
+    </div>
+
+    <template id="plantilla-card">
+      <div class="card">
+        <img src="" alt="" />
+        <h3></h3>
+        <p><strong>Categoría:</strong> <span class="val-categoria"></span></p>
+        <p><strong>Marca:</strong> <span class="val-marca"></span></p>
+        <p><strong>Precio:</strong> $<span class="val-precio"></span></p>
+        <p><strong>Stock:</strong> <span class="val-stock"></span> unidades</p>
+        <p class="card-estado"></p>
+      </div>
+    </template>
+
+    <template id="plantilla-modal-detalle">
+      <div class="modal-body-detalle">
+        <img src="" alt="" />
+        <h2></h2>
+        <div class="info-grid">
+          <p><strong>ID:</strong> #<span class="val-id"></span></p>
+          <p><strong>Categoría:</strong> <span class="val-categoria"></span></p>
+          <p><strong>Marca:</strong> <span class="val-marca"></span></p>
+          <p><strong>Precio:</strong> $<span class="val-precio"></span></p>
+          <p>
+            <strong>Stock disponible:</strong>
+            <span class="val-stock"></span> unidades
+          </p>
+          <p><strong>Proveedor:</strong> <span class="val-proveedor"></span></p>
+          <p>
+            <strong>Fecha de Ingreso:</strong> <span class="val-fecha"></span>
+          </p>
+          <p><strong>Estado:</strong> <span class="val-estado"></span></p>
+        </div>
+      </div>
+    </template>
+
+    <footer id="contacto">
+      <p>
+        <strong>Estudiante:</strong>
+        <a
+          href="https://github.com/JustinTWind"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Justin Londoño Cárdenas</a
+        >
+      </p>
+      <p><strong>Grupo:</strong> Frontend II</p>
+      <p><strong>Año:</strong> 2026</p>
+      <p>
+        <strong>Institución:</strong>
+        <a
+          href="https://cesde.edu.co/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >CESDE</a
+        >
+      </p>
+    </footer>
+
+    <script src="data/productos.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

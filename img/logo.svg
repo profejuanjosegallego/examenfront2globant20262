@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <linearGradient id="techGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00D2FF" />
+      <stop offset="100%" stop-color="#3A7BD5" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF512F" />
+      <stop offset="100%" stop-color="#F09819" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Hexagon Tech Background -->
+  <polygon points="50,5 88,27 88,73 50,95 12,73 12,27" fill="url(#techGrad)" rx="10" />
+  
+  <!-- Inner Circuit Lines -->
+  <polygon points="50,12 82,31 82,69 50,88 18,69 18,31" fill="#1a1a2e" opacity="0.9" />
+
+  <!-- Stylized T & Monitor Symbol -->
+  <path d="M 32 32 L 68 32 C 71 32 71 36 68 36 L 54 36 L 54 62 C 54 65 46 65 46 62 L 46 36 L 32 36 C 29 36 29 32 32 32 Z" fill="#FFFFFF" filter="url(#glow)" />
+  
+  <!-- Screen Base / Circuit Dot Accent -->
+  <rect x="40" y="66" width="20" height="4" rx="2" fill="url(#accentGrad)" />
+  <circle cx="50" cy="26" r="3" fill="url(#accentGrad)" />
+  <circle cx="30" cy="50" r="2.5" fill="#00D2FF" />
+  <circle cx="70" cy="50" r="2.5" fill="#00D2FF" />
+  <line x1="30" y1="50" x2="36" y2="50" stroke="#00D2FF" stroke-width="1.5" />
+  <line x1="70" y1="50" x2="64" y2="50" stroke="#00D2FF" stroke-width="1.5" />
+</svg>

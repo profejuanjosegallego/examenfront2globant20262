@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechStore | Catálogo</title>
+    <link rel="stylesheet" href="./assets/styles/index.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <img src="./assets/imgs/logo.png" alt="Logo TechStore" class="logo">
+            <div>
+                <h1>TechStore</h1>
+                <p>Tu tienda de tecnología</p>
+            </div>
+        </div>
+
+        <nav class="nav">
+            <ul>
+                <li><a href="./index.html">Inicio</a></li>
+                <li><a href="./catalog.html" class="active">Catálogo</a></li>
+                <li><a href="./about.html">Nosotros</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="catalog-section">
+            <div class="catalog-header">
+                <div>
+                    <h2>Catálogo de Productos</h2>
+                    <p class="section-description">Explora nuestra colección y filtra por disponibilidad o búsqueda.</p>
+                </div>
+                <div class="product-counter">
+                    Productos visibles:
+                    <span id="product-count">0</span>
+                </div>
+            </div>
+
+            <div class="catalog-filters">
+                <label class="filter-option">
+                    <input type="checkbox" id="only-available">
+                    Ver solo disponibles
+                </label>
+                <input type="text" id="search-products" placeholder="Buscar por nombre o categoría">
+            </div>
+
+            <div id="products-container" class="products-grid"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p><strong>Estudiante:</strong> Jose Jesus Vargas Martinez</p>
+        <p><strong>Grupo:</strong> Globant Desarrollo de Software</p>
+        <p><strong>Año:</strong> 2025 - 2026</p>
+    </footer>
+
+    <script src="./assets/js/app.js"></script>
+</body>
+</html>

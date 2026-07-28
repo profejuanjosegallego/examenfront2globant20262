@@ -1,5 +1,8 @@
 # Examen Front-End 2 - TechStore
 
+**Se agrega Github pages** 
+https://jhoncastrillon.github.io/examenfront2globant20262/
+
 **Para el desarrollo de este catálogo digital estructuré el proyecto separando la lógica en carpetas de datos, scripts y estilos. La solución la abordé creando primero el arreglo con los 50 productos con su stock e imágenes por URL, y luego en JavaScript programé las funciones de renderizado dinámico manipulando el DOM. Para cumplir con los requerimientos integré los eventos de búsqueda por nombre y filtro por categoría para que trabajen en conjunto en tiempo real, además de agregar el botón para filtrar solo productos disponibles y el botón para alternar entre la vista de tarjetas y tabla. Finalmente, en CSS apliqué variables con la paleta de color oscura y verde neón, agregando media queries para que la tienda se adapte bien a diferentes tamaños de pantallas.**
 
 

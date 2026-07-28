@@ -1,4 +1,59 @@
-# Examen práctico de Front-End
+# Examen Front-End 2 - TechStore
+
+**Se agrega Github pages** 
+https://jhoncastrillon.github.io/examenfront2globant20262/
+
+**Para el desarrollo de este catálogo digital estructuré el proyecto separando la lógica en carpetas de datos, scripts y estilos. La solución la abordé creando primero el arreglo con los 50 productos con su stock e imágenes por URL, y luego en JavaScript programé las funciones de renderizado dinámico manipulando el DOM. Para cumplir con los requerimientos integré los eventos de búsqueda por nombre y filtro por categoría para que trabajen en conjunto en tiempo real, además de agregar el botón para filtrar solo productos disponibles y el botón para alternar entre la vista de tarjetas y tabla. Finalmente, en CSS apliqué variables con la paleta de color oscura y verde neón, agregando media queries para que la tienda se adapte bien a diferentes tamaños de pantallas.**
+
+
+
+**Estudiante:** Jhon Fredy Castrillon  
+**Grupo:** Globant  
+**Institución:** Cesde  
+**Año:** 2026  
+
+---
+
+## 🚀 Sobre el Proyecto
+Este proyecto es un catálogo digital interactivo desarrollado para la tienda de tecnología **TechStore**. El objetivo principal fue construir una interfaz rápida, limpia y responsive para visualizar productos, filtrarlos y alternar entre distintas vistas utilizando HTML5, CSS3 y JavaScript vanilla.
+
+---
+
+## 🛠️ Cómo abordé la solución de los requerimientos
+
+1. **Estructura y Datos (`data/productos.js`):**
+   * Creé la lista de 50 productos con sus respectivas propiedades (ID, nombre, categoría, marca, precio, stock, estado y ruta de imagen local).
+   * Verifiqué que las categorías coincidieran exactamente con los filtros de la interfaz.
+
+2. **Renderizado Dinámico y Manipulación del DOM (`js/app.js`):**
+   * Para evitar errores al cargar elementos, estructuré las funciones de filtrado y renderizado antes de invocar los eventos del DOM.
+   * Usé manipulación segura del DOM (`while (container.firstChild)`) para limpiar la vista antes de dibujar nuevos productos, evitando duplicaciones de código HTML.
+
+3. **Filtros y Controles:**
+   * **Buscador por texto y categoría:** Implementé la función `filterProducts()` que combina en tiempo real la búsqueda por nombre (usando `.includes()` e ignore de mayúsculas) con el selector de categorías.
+   * **Alternar Vistas (Tarjetas / Tabla):** Agregué la funcionalidad para cambiar la presentación de los productos dinámicamente según la preferencia del usuario, adaptando las clases del contenedor en CSS.
+   * **Filtro de Disponibles:** Programé el botón para filtrar de forma directa únicamente los artículos con stock disponible.
+
+4. **Diseño y Estilos (`css/styles.css`):**
+   * Configuré variables CSS (`:root`) para mantener una paleta de colores unificada en modo oscuro (verde neón `#1cc32f` y tonos oscuros).
+   * Diseñé las tarjetas con hover effects para darle mejor experiencia de usuario y ajusté las reglas `@media` para asegurar que todo el catálogo y la tabla se adapten bien a dispositivos móviles.
+
+---
+
+## 💻 Tecnologías Utilizadas
+* HTML5 semántico
+* CSS3 (Flexbox, Grid, Variables CSS y Media Queries)
+* JavaScript Vanilla (ES6+)
+
+
+
+
+
+
+
+# Examen práctico de Front-End 
+
+
 
 ## Manipulación del DOM y renderizado dinámico de datos
 

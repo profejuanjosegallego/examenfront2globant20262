@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TechStore - electronica</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero__content">
+        <div class="hero__brand">
+          <img class="logo" src="img/techstore-logo.svg" alt="Logo de TechStore" />
+          <div>
+            <p class="eyebrow">TechStore</p>
+            <h1>Tienda online - componentes</h1>
+          </div>
+        </div>
+        <nav class="nav">
+          <a href="#info">Info</a>
+          <a href="#catalogo">Catalogo</a>
+          <a href="#contacto">Contacto</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="intro" id="info">
+        <div class="intro__text">
+          <h2>Aca vendemos tech</h2>
+          <p>Componentes, perifericos y cosas varias. Tenemos stock casi siempre, veni y mira que tenes.</p>
+        </div>
+
+        <aside class="stats">
+          <div class="stat-card">
+            <span id="contador-productos">0</span>
+            <p>en stock</p>
+          </div>
+          <div class="stat-card">
+            <span>Si</span>
+            <p>activo</p>
+          </div>
+        </aside>
+      </section>
+
+      <section class="catalogo" id="catalogo">
+        <div class="catalogo__header">
+          <div>
+            <h2>Catalogo de productos</h2>
+            <p>pone lo q buscas aca abajo che</p>
+          </div>
+          <div class="field">
+            <label for="buscador">Que buscas</label>
+            <input id="buscador" type="text" placeholder="mouse, laptop, cualquier cosa" />
+          </div>
+        </div>
+
+        <div id="productos" class="productos"></div>
+      </section>
+    </main>
+
+    <footer class="footer" id="contacto">
+      <p>TechStore - 2026</p>
+      <p>Javier Martinez - Grupo 1A</p>
+    </footer>
+
+    <script src="data/productos.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

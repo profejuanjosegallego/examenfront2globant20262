@@ -1,3 +1,12 @@
+const imagenesPorCategoria = {
+  "Computadores": "https://picsum.photos/seed/computadores/300/200",
+  "Perifericos": "https://picsum.photos/seed/perifericos/300/200",
+  "Celulares": "https://picsum.photos/seed/celulares/300/200",
+  "Accesorios": "https://picsum.photos/seed/accesorios/300/200",
+  "Almacenamiento": "https://picsum.photos/seed/almacenamiento/300/200",
+  "Componentes": "https://picsum.photos/seed/componentes/300/200"
+};
+
 function renderizarProductos(listaProductos) {
   const contenedor = document.getElementById("contenedor-productos");
   
@@ -9,7 +18,7 @@ function renderizarProductos(listaProductos) {
     return `
       <div class="col-md-4 col-sm-6">
         <div class="card">
-          <img src="${producto.imagen}" alt="${producto.nombre}">
+          <img src="${imagenesPorCategoria[producto.categoria]}" alt="${producto.nombre}">
           <div class="card-body">
             <h5 class="card-title">${producto.nombre}</h5>
             <p class="card-text">Marca: ${producto.marca}</p>

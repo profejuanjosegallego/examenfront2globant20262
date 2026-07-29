@@ -1,0 +1,267 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f7fb;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    position: relative;
+    background: linear-gradient(135deg, #0d47a1, #1976d2);
+    color: white;
+    text-align: center;
+    padding: 35px 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.2);
+}
+header img {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+
+    width: 85px;
+    height: 85px;
+
+    border-radius: 50%;
+    border: 4px solid white;
+    object-fit: cover;
+
+    box-shadow: 0 6px 15px rgba(0,0,0,.25);
+}
+
+header h1 {
+    font-size: 3rem;
+    letter-spacing: 3px;
+    margin-top: 10px;
+}
+
+header h2 {
+    font-size: 1.1rem;
+    font-weight: 300;
+    margin-bottom: 25px;
+}
+
+
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 30px;
+    transition: .3s;
+}
+
+nav a:hover {
+    background: white;
+    color: #1565c0;
+}
+
+
+
+main {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+
+#inicio {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.1);
+}
+
+#inicio h2 {
+    color: #1565c0;
+    margin-bottom: 15px;
+}
+
+
+
+#catalogo {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.1);
+}
+
+#catalogo h2 {
+    color: #1565c0;
+    margin-bottom: 15px;
+}
+#catalogo p{
+    display:flex;
+    align-items:center;
+    font-size:20px;
+    margin-bottom:25px;
+}
+
+#contadorUnico{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    width:55px;
+    height:55px;
+    margin-left:12px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#1976d2,#42a5f5);
+    color:white;
+    font-size:22px;
+    font-weight:bold;
+    box-shadow:0 8px 18px rgba(25,118,210,.35);
+}
+
+
+.contenedor-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap: 25px;
+}
+
+
+.producto {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,.08);
+    transition: .35s;
+    border:1px solid #e6e6e6;
+}
+
+.producto:hover{
+    transform:translateY(-8px);
+    box-shadow:0 18px 30px rgba(0,0,0,.18);
+}
+
+.producto img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    background:#f5f5f5;
+}
+.producto h3{
+    color:#1565c0;
+    font-size:22px;
+    padding:15px 15px 10px;
+}
+
+.producto p {
+    padding: 0 15px 10px;
+}
+
+.precio{
+    color:#2e7d32;
+    font-size:24px;
+    font-weight:bold;
+}
+
+.stock {
+    color: #555;
+}
+
+.boton {
+    display: block;
+    width: 90%;
+    margin: 15px auto 20px;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #1565c0;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    transition: .3s;
+}
+
+.boton:hover {
+    background: #0d47a1;
+}
+
+
+
+footer{
+    background:#0b2c57;
+    color:white;
+    text-align:center;
+    padding:35px;
+    margin-top:60px;
+}
+
+footer p{
+    margin:10px 0;
+}
+
+footer hr {
+    margin-bottom: 20px;
+    border: 1px solid rgba(255,255,255,.2);
+}
+
+
+
+
+
+@media (max-width:768px) {
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    main {
+        width: 95%;
+    }
+
+}
+
+#buscadorDeProductos{
+    width:100%;
+    padding:15px 20px;
+    margin:25px 0;
+    border:none;
+    border-radius:40px;
+    font-size:16px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+#buscadorDeProductos:focus{
+    outline:none;
+    box-shadow:0 0 12px rgba(21,101,192,.35);
+}
+
+.producto{
+    animation: aparecer .4s ease;
+}
+
+@keyframes aparecer{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}

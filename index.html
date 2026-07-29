@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIGTECH |La tienda más top en tecnología </title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>AIGTECH</h1>
+        <img src="img/AIGTECH.png" alt="Logotipo de AIGTECH" width="120">
+        <h2>Aquí puedes encontrar los productos más top en tecnología</h2>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#ofertas">Ofertas</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <main>
+
+        <section id="inicio">
+            <h2>Bienvenido a AIGTECH, tu casa tecnológica</h2>
+            <p>
+                En AIGTECH ofrecemos soluciones tecnológicas innovadoras, equipos de alta
+                calidad y accesorios diseñados para mejorar tu experiencia digital.
+            </p>
+        </section>
+
+        <section id="catalogo">
+            <h2>Catálogo de Productos</h2>
+
+            <p>
+                <strong>Productos disponibles</strong>
+                <span id="contadorUnico">0</span>
+            </p>
+
+            <input type="text" id="buscadorDeProductos" placeholder="Buscar producto por nombre">
+
+            <div id="seccionPrincipalProductos" class="contenedor-productos">
+
+            </div>
+        </section>
+
+    </main>
+    <footer>
+        <hr>
+
+        <p><strong>By Andrea Insignares Gaviria</strong></p>
+        <p><strong>Front II</strong> </p>
+        <p><strong>2026</strong></p>
+        <p><strong>CESDE</strong></p>
+
+        <p>&copy; 2026 AIGTECH - Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="data/productos.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>

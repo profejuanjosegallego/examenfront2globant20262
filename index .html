@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TECH - Catalogo digital</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+    <div class="logo container">
+        <h1 class="name">TECH STORE</h1>
+    </div>
+    <nav class="navegacion ">
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#catalogo">Catalogo</a></li>
+            <li><a href="#Conocenos">Conocenos</a></li>
+        </ul>
+    </nav>
+    </header>
+
+    <main class="Contenido Main">
+        <section id="Inicio" class="seccion-principal">
+            <h2>Inventario Digital</h2>
+            <p>Somo lideres en la comercializacion en tecnologia</p>
+        </section>
+
+        <section id="Catalogo" class="seccion-catalogo">
+            <div class="Catalogo-header">
+                <h3>Productos Disponibles</h3>
+                <p class="contenedor">Total de Productos:<span id="Contador-productos">0</span>/p>
+            </div>
+            
+            <div class="Buscar-contenedor">
+                <input
+                 type="text"
+                 id="input-busqueda"
+                placeholder="Busca tu producto"
+                autocomplete="off" 
+                >
+            </div> 
+
+            <div id="Contenerdo-productos" class="cards"></div>
+        </section>
+
+<main>
+    <footer class="main-footer">
+        <div class="footer-contenedor">
+            <p>Desarrollado por: <strong>Maria Alejandra Carmona</strong>/p>
+                <p>Grupo:<strong>Grupo Globant</strong>| Ano:<strong>2026</p>
+                    <p>Programa: ><strong>Desarrolo web Front-End</strong>></p>
+        </div>
+    </footer>
+
+    <script src="data/productos.js"></script>
+  <script src="js/app.js"></script>
+</main>
+
+    </main>
+
+</body>
+</html>

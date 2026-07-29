@@ -33,3 +33,17 @@ function actualizarContador(cantidad) {
 // Al cargar la página: mostramos todos los productos
 renderizarProductos(productos);
 actualizarContador(productos.length);
+
+const inputBuscador = document.getElementById("buscador");
+
+inputBuscador.addEventListener("input", function () {
+  const texto = inputBuscador.value.toLowerCase();
+
+  // .filter() devuelve solo los productos cuyo nombre incluye el texto buscado
+  const resultados = productos.filter(producto =>
+    producto.nombre.toLowerCase().includes(texto)
+  );
+
+  renderizarProductos(resultados);
+  actualizarContador(resultados.length);
+});

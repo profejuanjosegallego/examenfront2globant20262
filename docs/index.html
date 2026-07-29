@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <title>TechStore | Catalogo Digital</title>
+  </head>
+  <body>
+    <div class="bg-shape bg-shape--a"></div>
+    <div class="bg-shape bg-shape--b"></div>
+
+    <header id="inicio" class="hero">
+      <div class="hero__topbar">
+        <div class="brand-lockup">
+          <span class="brand-lockup__icon" aria-hidden="true">TS</span>
+          <div>
+            <h1>TechStore</h1>
+          </div>
+        </div>
+        <nav class="main-nav" aria-label="Navegacion principal">
+          <a href="./carrito.html"
+            >Carrito
+            <span id="cartCountBadge" class="cart-count-badge">0</span></a
+          >
+        </nav>
+      </div>
+      <p class="hero__subtitle">
+        Catalogo digital de productos tecnologicos y electrodomesticos.
+      </p>
+      <div id="catalogStats" class="hero__stats" aria-live="polite"></div>
+    </header>
+
+    <main id="catalogo" class="app-shell">
+      <section class="catalog-intro">
+        <h2>Catalogo de productos</h2>
+        <p>
+          En TechStore conectamos marcas lideres de tecnologia con empresas y
+          consumidores que buscan rendimiento, calidad y disponibilidad
+          inmediata.
+        </p>
+        <p id="productsCounter" class="products-counter" aria-live="polite">
+          Productos cargados: 0
+        </p>
+      </section>
+
+      <section class="controls" aria-label="Filtros del catalogo">
+        <label class="control-group" for="categoryFilter">
+          <span>Categoria</span>
+          <select id="categoryFilter"></select>
+        </label>
+
+        <label class="control-group" for="searchInput">
+          <span>Buscar</span>
+          <input
+            id="searchInput"
+            type="search"
+            placeholder="Ej: Laptop, Samsung, monitor..."
+            autocomplete="off"
+          />
+        </label>
+      </section>
+
+      <section
+        id="statusMessage"
+        class="status-message"
+        aria-live="polite"
+      ></section>
+      <section
+        id="productsGrid"
+        class="products-grid"
+        aria-live="polite"
+      ></section>
+    </main>
+
+    <footer id="pie" class="site-footer">
+      <p>Estudiante: Mateo Pineda</p>
+      <p>Grupo: FrontEnd II</p>
+      <p>Anio: 2026</p>
+      <p>Institucion: CESDE - Programa Desarrollo Frontend</p>
+    </footer>
+
+    <script type="module" src="./js/app.js"></script>
+  </body>
+</html>

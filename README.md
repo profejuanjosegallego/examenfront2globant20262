@@ -1,14 +1,14 @@
 # TechStore
 
-Proyecto de catálogo de productos tecnológicos.
+Proyecto de catálogo de productos.
 
 ## Estructura del proyecto
 
-- `index.html`
-- `css/styles.css`
-- `js/app.js`
-- `data/productos.js`
-- `img/`
+- index.html
+- css/styles.css
+- js/app.js
+- data/productos.js
+- img/
 
 ## Funcionalidades
 
@@ -18,3 +18,7 @@ Proyecto de catálogo de productos tecnológicos.
 - Filtra por categoría.
 - Muestra solo productos disponibles.
 - Botón flotante para volver al inicio.
+
+## Demo en vivo
+
+https://SaraMassiel.github.io/examenfront2globant20262/

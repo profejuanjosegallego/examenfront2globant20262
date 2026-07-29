@@ -12,3 +12,7 @@ Para finalizar agregué un carrusel dinamico en el index para mostrar en grupos 
 -creacion de logo con svg 
 -Creacion de los 50 archivos JSON
 -entendimiento de variables de bootstrap
+
+ENLACE GITHUB PAGES
+*intenté hacerlo pero no se si es funcional
+Poke42o.gitgub.io

@@ -14,5 +14,4 @@ Para finalizar agregué un carrusel dinamico en el index para mostrar en grupos 
 -entendimiento de variables de bootstrap
 
 ENLACE GITHUB PAGES
-*intenté hacerlo pero no se si es funcional
-Poke42o.gitgub.io
+https://poke42o.github.io/Poke42o.gitgub.io/

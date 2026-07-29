@@ -1,4 +1,4 @@
-import { productos } from "../data/productos.js"
+import { productos } from "../data/productos.js";
 console.log(productos);
 
 const totalProductos = productos.length;

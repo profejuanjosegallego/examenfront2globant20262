@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechStore | Catálogo Digital de Productos Tecnológicos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+
+  <header class="header">
+    <div class="header__brand">
+      <div class="logo">
+        <span class="logo__bracket">&lt;</span>TS<span class="logo__bracket">/&gt;</span>
+      </div>
+      <div class="header__text">
+        <p class="header__company">TechStore</p>
+        <h1 class="header__title">Catálogo Digital de Productos Tecnológicos</h1>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a href="#inicio" class="nav__link">Inicio</a>
+      <a href="#catalogo" class="nav__link">Catálogo</a>
+      <a href="#categorias" class="nav__link">Categorías</a>
+    </nav>
+  </header>
+
+
+  <main>
+
+    <section id="inicio" class="intro">
+      <div class="intro__content">
+        <span class="eyebrow">Inventario en línea // v1.0</span>
+        <h2 class="intro__heading">Tecnología organizada,<br />disponible al instante.</h2>
+        <p class="intro__desc">
+          TechStore comercializa computadores, periféricos, dispositivos móviles, accesorios,
+          almacenamiento y componentes. Este catálogo digital reemplaza las hojas de cálculo
+          por una vista clara, ordenada y siempre actualizada de nuestro inventario.
+        </p>
+      </div>
+
+      <div class="stats">
+        <div class="stats__card">
+          <span class="stats__number" id="contador-productos">0</span>
+          <span class="stats__label">productos cargados</span>
+        </div>
+        <div class="stats__card">
+          <span class="stats__number" id="contador-disponibles">0</span>
+          <span class="stats__label">disponibles ahora</span>
+        </div>
+        <div class="stats__card">
+          <span class="stats__number" id="contador-categorias">0</span>
+          <span class="stats__label">categorías</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="categorias" class="filtros">
+      <h3 class="filtros__title">Filtrar por categoría</h3>
+      <div class="filtros__botones" id="filtros-categoria">
+        <!-- Los botones de categoría se generan dinámicamente con JS -->
+      </div>
+    </section>
+
+    <section id="catalogo" class="catalogo">
+      <div class="catalogo__header">
+        <h2 class="catalogo__title">Catálogo de productos</h2>
+        <div class="catalogo__buscador">
+          <input type="text" id="buscador" placeholder="Buscar por nombre o marca..." autocomplete="off" />
+        </div>
+      </div>
+
+      <p class="catalogo__resultado" id="resultado-texto"></p>
+
+      <div class="grid" id="contenedor-productos">
+       
+      </div>
+    </section>
+
+  </main>
+
+  <script src="data/productos.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

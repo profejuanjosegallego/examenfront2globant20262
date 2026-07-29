@@ -19,6 +19,6 @@ Proyecto de catálogo de productos.
 - Muestra solo productos disponibles.
 - Botón flotante para volver al inicio.
 
-## Demo en vivo
+## Pagina
 
 https://SaraMassiel.github.io/examenfront2globant20262/

@@ -9,7 +9,6 @@ const imagenesPorCategoria = {
 
 function renderizarProductos(listaProductos) {
   const contenedor = document.getElementById("contenedor-productos");
-  
   contenedor.innerHTML = "";
 
   const tarjetasHTML = listaProductos.map(producto => {
@@ -33,13 +32,12 @@ function renderizarProductos(listaProductos) {
   contenedor.innerHTML = tarjetasHTML.join("");
 }
 
-
 function actualizarContador(cantidad) {
   const contador = document.getElementById("contador-productos");
   contador.textContent = `Mostrando ${cantidad} productos`;
 }
 
-// Al cargar la página: mostramos todos los productos
+
 renderizarProductos(productos);
 actualizarContador(productos.length);
 
@@ -47,12 +45,20 @@ const inputBuscador = document.getElementById("buscador");
 
 inputBuscador.addEventListener("input", function () {
   const texto = inputBuscador.value.toLowerCase();
-
-  // .filter() devuelve solo los productos cuyo nombre incluye el texto buscado
   const resultados = productos.filter(producto =>
     producto.nombre.toLowerCase().includes(texto)
   );
+  renderizarProductos(resultados);
+  actualizarContador(resultados.length);
+});
 
+const selectCategoria = document.getElementById("filtroCategoria");
+
+selectCategoria.addEventListener("change", function () {
+  const categoriaSeleccionada = selectCategoria.value;
+  const resultados = categoriaSeleccionada === "todas"
+    ? productos
+    : productos.filter(producto => producto.categoria === categoriaSeleccionada);
   renderizarProductos(resultados);
   actualizarContador(resultados.length);
 });

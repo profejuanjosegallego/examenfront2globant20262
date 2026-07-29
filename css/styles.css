@@ -25,7 +25,7 @@ body {
   line-height: 1.6;
 }
 
-/* ---------- Header ---------- */
+
 header {
   display: flex;
   justify-content: space-between;
@@ -91,7 +91,7 @@ header nav a:hover::after {
   width: 100%;
 }
 
-/* ---------- Main ---------- */
+
 main {
   padding: 3rem 2.5rem;
   max-width: 1280px;
@@ -124,7 +124,7 @@ main {
   font-size: 0.95rem;
 }
 
-/* Buscador */
+
 #buscador {
   width: 100%;
   max-width: 400px;
@@ -142,7 +142,7 @@ main {
   box-shadow: 0 0 0 3px rgba(13,110,253,0.15);
 }
 
-/* ---------- Tarjetas de producto ---------- */
+
 #contenedor-productos .card {
   height: 100%;
   margin-bottom: 1.75rem;
@@ -187,7 +187,7 @@ main {
   font-size: 1.05rem;
 }
 
-/* ---------- Footer ---------- */
+
 footer {
   text-align: center;
   padding: 2rem;
@@ -202,7 +202,7 @@ footer p {
   opacity: 0.85;
 }
 
-/* ---------- Responsive ---------- */
+
 @media (max-width: 768px) {
   header {
     flex-direction: column;

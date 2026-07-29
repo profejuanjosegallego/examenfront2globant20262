@@ -1,0 +1,86 @@
+:root {
+  --rosado-oscuro: #C2185B; 
+  --rosado-hover: #AD1457;
+}
+
+.color-rosado-oscuro {
+  color: var(--rosado-oscuro) !important;
+}
+
+.bg-rosado-oscuro {
+  background-color: var(--rosado-oscuro) !important;
+}
+
+.btn-borde-rosado {
+  background-color: transparent;
+  border: 2px solid var(--rosado-oscuro);
+  color: var(--rosado-oscuro);
+  font-weight: 500;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.btn-borde-rosado:hover, 
+.btn-borde-rosado:focus {
+  background-color: var(--rosado-oscuro);
+  color: #ffffff;
+  border-color: var(--rosado-oscuro);
+}
+
+.borde-hover {
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.borde-hover:hover {
+  border-color: var(--rosado-oscuro);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(194, 24, 91, 0.15) !important;
+}
+
+.navbar-nav .nav-link {
+  font-weight: 500;
+  color: #495057;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: var(--rosado-oscuro) !important;
+}
+
+.navbar-toggler.btn-borde-rosado {
+  border-color: var(--rosado-oscuro);
+}
+
+.navbar-toggler.btn-borde-rosado .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(194, 24, 91, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.card {
+  overflow: hidden; 
+  border: 1px solid #e0e0e0;
+}
+
+.color-rosado-oscuro {
+  color: #b80056; 
+}
+
+.btn-borde-rosado {
+  border: 2px solid #b80056;
+  color: #b80056;
+  background-color: transparent;
+  white-space: nowrap;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-borde-rosado:hover {
+  background-color: #b80056;
+  color: #ffffff;
+}

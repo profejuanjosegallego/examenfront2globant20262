@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Store</title>
+    <link rel="icon" href="img/TechStoreLogo.jpg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <header id="header">
+        <div class="d-flex">
+            <img class="imagenLogo" src="img/TechStoreLogo.jpg" alt="Logo tech store">
+            <h1>Tech Store: Tu tienda tecnologica en Medellin</h1>
+        </div>
+        <nav>
+            <a href="#header">Inicio</a><a href="#sobreNosotros">Sobre nosotros</a><a href="#tituloProductos">Nuestros
+                productos</a><a href="#buscador">Busqueda personalizada</a><a href="#footer">Informacion adicional</a>
+        </nav>
+    </header>
+
+    <section>
+        <h2 class="text-center my-4" id="sobreNosotros">Sobre nosotros</h2>
+        <p>TechStore es una empresa especializada en la venta de productos tecnológicos, ofreciendo computadores,
+            celulares, accesorios y dispositivos electrónicos de las mejores marcas. Nuestro compromiso es brindar
+            productos de alta calidad, precios competitivos y una excelente atención al cliente para satisfacer las
+            necesidades tecnológicas de nuestros usuarios.</p>
+    </section>
+    <main>
+        <h2 class="text-center mt-5" id="tituloProductos">Todos los productos de TechStore</h2>
+
+        <p class="text-center" id="cantidadProductos"></p>
+        <input type="text" id="buscador" placeholder="Buscar producto especifico...">
+        <div id="contenedorProductos" class="row"></div>
+    </main>
+
+    <footer id="footer" class="d-flex justify-content-evenly">
+        <div>
+            <p><strong>Nombre:</strong> Kevin Stiward Balvin Garcia</p>
+            <p><strong>Grupo:</strong> Globant - Frontend II</p>
+            <p><strong>Año:</strong> 2026</p>
+            <P><strong>Institucion:</strong> Cesde – Educación para el trabajo y el desarrollo humano</P>
+        </div>
+        <div>
+            <p><strong>Dirección:</strong> Calle 91A 39-42 San blas, Medellín, Antioquia</p>
+            <p><strong>Teléfono:</strong> (+57) 3128872651</p>
+            <p><strong>Correo:</strong> contacto@techstore.com</p>
+            <p><strong>Horario de atención:</strong> Lunes a Sábado: 9:00 a.m. - 8:00 p.m.</p>
+        </div>
+    </footer>
+    <script src="js/app.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

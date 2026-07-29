@@ -74,6 +74,31 @@ const setStatus = (message, type = "") => {
   }
 };
 
+const clearElement = (element) => {
+  while (element.firstChild) {
+    element.removeChild(element.firstChild);
+  }
+};
+
+const createStatChip = (label, value) => {
+  const chip = document.createElement("span");
+  chip.className = "stat-chip";
+  chip.textContent = `${label}: `;
+
+  const strong = document.createElement("strong");
+  strong.textContent = String(value);
+  chip.append(strong);
+
+  return chip;
+};
+
+const createSelectOption = (value, label) => {
+  const option = document.createElement("option");
+  option.value = value;
+  option.textContent = label;
+  return option;
+};
+
 const getNoticeFromUrl = () => {
   const params = new URLSearchParams(window.location.search);
   const message = params.get("noticeMessage");
@@ -146,27 +171,27 @@ const showCartNoticeIfPresent = () => {
 
 const renderStats = (products) => {
   const stats = getCatalogStats(products);
-
-  refs.catalogStats.innerHTML = `
-		<span class="stat-chip">Productos: <strong>${stats.totalProducts}</strong></span>
-		<span class="stat-chip">Categorias: <strong>${stats.totalCategories}</strong></span>
-		<span class="stat-chip">Disponibles: <strong>${stats.availableCount}</strong></span>
-	`;
+  clearElement(refs.catalogStats);
+  refs.catalogStats.append(
+    createStatChip("Productos", stats.totalProducts),
+    createStatChip("Categorias", stats.totalCategories),
+    createStatChip("Disponibles", stats.availableCount),
+  );
 };
 
 const renderCategoryOptions = (products) => {
   const categories = [...new Set(products.map((item) => item.categoria))].sort(
     (a, b) => a.localeCompare(b),
   );
-  const options = ['<option value="all">Todas las categorias</option>'];
+
+  clearElement(refs.categoryFilter);
+  refs.categoryFilter.append(createSelectOption("all", "Todas las categorias"));
 
   categories.forEach((category) => {
-    options.push(
-      `<option value="${escapeHtml(category)}">${escapeHtml(category)}</option>`,
+    refs.categoryFilter.append(
+      createSelectOption(category, category),
     );
   });
-
-  refs.categoryFilter.innerHTML = options.join("");
 };
 
 const formatExtraLabel = (key) => EXTRA_LABELS[key] || key;
@@ -185,33 +210,59 @@ const ensureHoverCard = () => {
   refs.hoverCard = card;
 };
 
-const buildHoverCardMarkup = (product) => {
-  const extraRows = product.extras.length
-    ? product.extras
-        .map((extra) => {
-          const value =
-            typeof extra.value === "boolean"
-              ? boolToText(extra.value)
-              : String(extra.value);
-          return `<li><span>${escapeHtml(formatExtraLabel(extra.key))}:</span> ${escapeHtml(value)}</li>`;
-        })
-        .join("")
-    : "<li>Sin atributos extra.</li>";
+const buildHoverCardContent = (product) => {
+  const fragment = document.createDocumentFragment();
 
-  return `
-		<h4>Detalles</h4>
-		<p class="detail-title">${escapeHtml(product.nombre)}</p>
-		<ul class="detail-list">
-			<li><span>Marca:</span> ${escapeHtml(product.marca)}</li>
-			<li><span>Disponibilidad:</span> ${product.disponible ? "Disponible" : "No disponible"}</li>
-			<li><span>Stock:</span> ${product.stock}</li>
-			<li><span>Precio:</span> ${escapeHtml(formatPrice(product.precio))}</li>
-			<li><span>Proveedor:</span> ${escapeHtml(product.proveedor)}</li>
-			<li><span>Fecha ingreso:</span> ${escapeHtml(product.fechaIngreso)}</li>
-			<li><span>Categoria:</span> ${escapeHtml(product.categoria)}</li>
-		</ul>
-		<ul class="detail-list detail-list--extras">${extraRows}</ul>
-	`;
+  const title = document.createElement("h4");
+  title.textContent = "Detalles";
+  fragment.append(title);
+
+  const productTitle = document.createElement("p");
+  productTitle.className = "detail-title";
+  productTitle.textContent = product.nombre;
+  fragment.append(productTitle);
+
+  const detailList = document.createElement("ul");
+  detailList.className = "detail-list";
+
+  const addDetailItem = (label, value) => {
+    const item = document.createElement("li");
+    const labelNode = document.createElement("span");
+    labelNode.textContent = `${label}:`;
+    item.append(labelNode, document.createTextNode(` ${value}`));
+    return item;
+  };
+
+  detailList.append(
+    addDetailItem("Marca", product.marca),
+    addDetailItem("Disponibilidad", product.disponible ? "Disponible" : "No disponible"),
+    addDetailItem("Stock", product.stock),
+    addDetailItem("Precio", formatPrice(product.precio)),
+    addDetailItem("Proveedor", product.proveedor),
+    addDetailItem("Fecha ingreso", product.fechaIngreso),
+    addDetailItem("Categoria", product.categoria),
+  );
+
+  const extrasList = document.createElement("ul");
+  extrasList.className = "detail-list detail-list--extras";
+
+  if (product.extras.length) {
+    product.extras.forEach((extra) => {
+      const value = typeof extra.value === "boolean" ? boolToText(extra.value) : String(extra.value);
+      const item = document.createElement("li");
+      const labelNode = document.createElement("span");
+      labelNode.textContent = `${formatExtraLabel(extra.key)}:`;
+      item.append(labelNode, document.createTextNode(` ${value}`));
+      extrasList.append(item);
+    });
+  } else {
+    const item = document.createElement("li");
+    item.textContent = "Sin atributos extra.";
+    extrasList.append(item);
+  }
+
+  fragment.append(detailList, extrasList);
+  return fragment;
 };
 
 const positionHoverCard = (targetCard) => {
@@ -263,7 +314,8 @@ const showHoverCard = (targetCard, product) => {
   ensureHoverCard();
   state.hoveredProduct = product;
   state.hoveredCard = targetCard;
-  refs.hoverCard.innerHTML = buildHoverCardMarkup(product);
+  clearElement(refs.hoverCard);
+  refs.hoverCard.append(buildHoverCardContent(product));
   const side = positionHoverCard(targetCard);
   refs.hoverCard.classList.remove("side-left", "side-right", "is-active");
   refs.hoverCard.classList.add(side === "left" ? "side-left" : "side-right");
@@ -373,48 +425,75 @@ const bindHoverEvents = () => {
   });
 };
 
-const buildCardMarkup = (product) => {
-  const stockClass = product.stock <= 5 ? "stock-badge is-low" : "stock-badge";
-  const stockLabel =
-    product.stock > 0 ? `Stock: ${product.stock}` : "Sin stock";
-  const disponibilidadLabel = product.disponible
-    ? "Disponible"
-    : "No disponible";
-  const mediaMarkup = product.imagen
-    ? `<img class="product-card__image" src="${escapeHtml(product.imagen)}" alt="${escapeHtml(product.nombre)}">`
-    : escapeHtml(initialsFromName(product.nombre));
+const buildCardElement = (product) => {
+  const article = document.createElement("article");
+  article.className = "product-card";
+  article.dataset.productId = String(product.id);
+  article.tabIndex = 0;
+  article.setAttribute("role", "button");
+  article.setAttribute("aria-label", `Comprar ${product.nombre}`);
 
-  return `
-		<article class="product-card" data-product-id="${product.id}" tabindex="0" role="button" aria-label="Comprar ${escapeHtml(product.nombre)}">
-			<div class="product-card__media" role="img" aria-label="Imagen de ${escapeHtml(product.nombre)}">
-				${mediaMarkup}
-			</div>
-			<div class="product-card__body">
-				<span class="product-card__category">${escapeHtml(product.categoria)}</span>
-				<h3>${escapeHtml(product.nombre)}</h3>
-				<p class="product-card__brand">${escapeHtml(product.marca)}</p>
-				<p class="product-card__availability">${escapeHtml(disponibilidadLabel)}</p>
-				<div class="product-card__footer">
-					<strong class="product-card__price">${formatPrice(product.precio)}</strong>
-					<span class="${stockClass}">${escapeHtml(stockLabel)}</span>
-				</div>
-			</div>
-		</article>
-	`;
+  const media = document.createElement("div");
+  media.className = "product-card__media";
+  media.setAttribute("role", "img");
+  media.setAttribute("aria-label", `Imagen de ${product.nombre}`);
+
+  if (product.imagen) {
+    const img = document.createElement("img");
+    img.className = "product-card__image";
+    img.src = product.imagen;
+    img.alt = product.nombre;
+    media.append(img);
+  } else {
+    media.textContent = initialsFromName(product.nombre);
+  }
+
+  const body = document.createElement("div");
+  body.className = "product-card__body";
+
+  const category = document.createElement("span");
+  category.className = "product-card__category";
+  category.textContent = product.categoria;
+
+  const title = document.createElement("h3");
+  title.textContent = product.nombre;
+
+  const brand = document.createElement("p");
+  brand.className = "product-card__brand";
+  brand.textContent = product.marca;
+
+  const availability = document.createElement("p");
+  availability.className = "product-card__availability";
+  availability.textContent = product.disponible ? "Disponible" : "No disponible";
+
+  const footer = document.createElement("div");
+  footer.className = "product-card__footer";
+
+  const price = document.createElement("strong");
+  price.className = "product-card__price";
+  price.textContent = formatPrice(product.precio);
+
+  const stockBadge = document.createElement("span");
+  stockBadge.className = product.stock <= 5 ? "stock-badge is-low" : "stock-badge";
+  stockBadge.textContent = product.stock > 0 ? `Stock: ${product.stock}` : "Sin stock";
+
+  footer.append(price, stockBadge);
+  body.append(category, title, brand, availability, footer);
+  article.append(media, body);
+
+  return article;
 };
 
 const renderProducts = (products) => {
   refs.productsCounter.textContent = `Productos cargados: ${state.allProducts.length}`;
 
   if (!products.length) {
-    refs.productsGrid.innerHTML = "";
+    refs.productsGrid.replaceChildren();
     setStatus(UI_TEXT.noResults, "is-warning");
     return;
   }
 
-  refs.productsGrid.innerHTML = products
-    .map((item) => buildCardMarkup(item))
-    .join("");
+  refs.productsGrid.replaceChildren(...products.map(buildCardElement));
   bindHoverEvents();
   setStatus(`Mostrando ${products.length} producto(s).`);
 };
@@ -459,7 +538,7 @@ const init = async () => {
     state.allProducts = products;
 
     if (!products.length) {
-      refs.productsGrid.innerHTML = "";
+      refs.productsGrid.replaceChildren();
       renderStats(products);
       renderCategoryOptions(products);
       setStatus(UI_TEXT.emptyData, "is-warning");
@@ -480,7 +559,7 @@ const init = async () => {
       console.warn("Archivos con error al cargar:", errors);
     }
   } catch (error) {
-    refs.productsGrid.innerHTML = "";
+    refs.productsGrid.replaceChildren();
     setStatus(UI_TEXT.error, "is-warning");
     console.error(error);
   }

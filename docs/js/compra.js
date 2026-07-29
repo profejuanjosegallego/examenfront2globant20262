@@ -88,33 +88,64 @@ const renderStatus = (message, type = "info") => {
 
 const formatExtraLabel = (key) => EXTRA_LABELS[key] || key;
 
-const renderProductCard = (product) => {
-  const extras = product.extras.length
-    ? product.extras
-        .map(
-          (extra) => `
-            <li><span>${escapeHtml(formatExtraLabel(extra.key))}:</span> ${escapeHtml(String(extra.value))}</li>
-        `,
-        )
-        .join("")
-    : "<li>Sin atributos extra.</li>";
+const createDetailItem = (label, value) => {
+  const item = document.createElement("li");
+  const span = document.createElement("span");
+  span.textContent = `${label}:`;
+  item.append(span, document.createTextNode(` ${value}`));
+  return item;
+};
 
-  refs.purchaseProductCard.innerHTML = `
-        <img src="${escapeHtml(product.imagen)}" alt="${escapeHtml(product.nombre)}" class="card-img-top">
-        <div class="card-body">
-            <p class="text-uppercase small fw-bold text-secondary mb-1">${escapeHtml(product.categoria)}</p>
-            <h2 class="h4 mb-1">${escapeHtml(product.nombre)}</h2>
-            <p class="text-secondary mb-3">${escapeHtml(product.marca)}</p>
-            <ul class="product-meta">
-                <li><span>Precio unitario:</span> ${escapeHtml(formatPrice(product.precio))}</li>
-                <li><span>Stock disponible:</span> ${product.stock}</li>
-                <li><span>Proveedor:</span> ${escapeHtml(product.proveedor)}</li>
-                <li><span>Ingreso:</span> ${escapeHtml(product.fechaIngreso)}</li>
-                <li><span>Disponible:</span> ${product.disponible ? "Si" : "No"}</li>
-            </ul>
-            <ul class="product-extras">${extras}</ul>
-        </div>
-    `;
+const renderProductCard = (product) => {
+  const image = document.createElement("img");
+  image.src = product.imagen;
+  image.alt = product.nombre;
+  image.className = "card-img-top";
+
+  const cardBody = document.createElement("div");
+  cardBody.className = "card-body";
+
+  const category = document.createElement("p");
+  category.className = "text-uppercase small fw-bold text-secondary mb-1";
+  category.textContent = product.categoria;
+
+  const title = document.createElement("h2");
+  title.className = "h4 mb-1";
+  title.textContent = product.nombre;
+
+  const brand = document.createElement("p");
+  brand.className = "text-secondary mb-3";
+  brand.textContent = product.marca;
+
+  const metaList = document.createElement("ul");
+  metaList.className = "product-meta";
+  metaList.append(
+    createDetailItem("Precio unitario", formatPrice(product.precio)),
+    createDetailItem("Stock disponible", product.stock),
+    createDetailItem("Proveedor", escapeHtml(product.proveedor)),
+    createDetailItem("Ingreso", escapeHtml(product.fechaIngreso)),
+    createDetailItem("Disponible", product.disponible ? "Si" : "No"),
+  );
+
+  const extraList = document.createElement("ul");
+  extraList.className = "product-extras";
+  if (product.extras.length) {
+    product.extras.forEach((extra) => {
+      extraList.append(
+        createDetailItem(
+          escapeHtml(formatExtraLabel(extra.key)),
+          escapeHtml(String(extra.value)),
+        ),
+      );
+    });
+  } else {
+    const emptyItem = document.createElement("li");
+    emptyItem.textContent = "Sin atributos extra.";
+    extraList.append(emptyItem);
+  }
+
+  cardBody.append(category, title, brand, metaList, extraList);
+  refs.purchaseProductCard.replaceChildren(image, cardBody);
 };
 
 const getSafeQuantity = () => {

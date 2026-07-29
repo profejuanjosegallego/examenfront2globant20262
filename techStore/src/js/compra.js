@@ -88,33 +88,68 @@ const renderStatus = (message, type = "info") => {
 
 const formatExtraLabel = (key) => EXTRA_LABELS[key] || key;
 
-const renderProductCard = (product) => {
-  const extras = product.extras.length
-    ? product.extras
-        .map(
-          (extra) => `
-            <li><span>${escapeHtml(formatExtraLabel(extra.key))}:</span> ${escapeHtml(String(extra.value))}</li>
-        `,
-        )
-        .join("")
-    : "<li>Sin atributos extra.</li>";
+const createMetaItem = (label, value) => {
+  const item = document.createElement("li");
+  const span = document.createElement("span");
+  span.textContent = `${label}:`;
+  item.append(span, document.createTextNode(` ${value}`));
+  return item;
+};
 
-  refs.purchaseProductCard.innerHTML = `
-        <img src="${escapeHtml(product.imagen)}" alt="${escapeHtml(product.nombre)}" class="card-img-top">
-        <div class="card-body">
-            <p class="text-uppercase small fw-bold text-secondary mb-1">${escapeHtml(product.categoria)}</p>
-            <h2 class="h4 mb-1">${escapeHtml(product.nombre)}</h2>
-            <p class="text-secondary mb-3">${escapeHtml(product.marca)}</p>
-            <ul class="product-meta">
-                <li><span>Precio unitario:</span> ${escapeHtml(formatPrice(product.precio))}</li>
-                <li><span>Stock disponible:</span> ${product.stock}</li>
-                <li><span>Proveedor:</span> ${escapeHtml(product.proveedor)}</li>
-                <li><span>Ingreso:</span> ${escapeHtml(product.fechaIngreso)}</li>
-                <li><span>Disponible:</span> ${product.disponible ? "Si" : "No"}</li>
-            </ul>
-            <ul class="product-extras">${extras}</ul>
-        </div>
-    `;
+const renderProductCard = (product) => {
+  const createExtraItem = (extra) => {
+    const item = document.createElement("li");
+    const label = document.createElement("span");
+    label.textContent = `${formatExtraLabel(extra.key)}:`;
+    item.append(label, document.createTextNode(` ${String(extra.value)}`));
+    return item;
+  };
+
+  const card = document.createElement("div");
+  card.className = "card-body";
+
+  const img = document.createElement("img");
+  img.src = product.imagen;
+  img.alt = product.nombre;
+  img.className = "card-img-top";
+
+  const category = document.createElement("p");
+  category.className = "text-uppercase small fw-bold text-secondary mb-1";
+  category.textContent = product.categoria;
+
+  const title = document.createElement("h2");
+  title.className = "h4 mb-1";
+  title.textContent = product.nombre;
+
+  const brand = document.createElement("p");
+  brand.className = "text-secondary mb-3";
+  brand.textContent = product.marca;
+
+  const metaList = document.createElement("ul");
+  metaList.className = "product-meta";
+  metaList.append(
+    createMetaItem("Precio unitario", formatPrice(product.precio)),
+    createMetaItem("Stock disponible", product.stock),
+    createMetaItem("Proveedor", product.proveedor),
+    createMetaItem("Ingreso", product.fechaIngreso),
+    createMetaItem("Disponible", product.disponible ? "Si" : "No"),
+  );
+
+  const extrasList = document.createElement("ul");
+  extrasList.className = "product-extras";
+
+  if (product.extras.length) {
+    product.extras.forEach((extra) => {
+      extrasList.append(createExtraItem(extra));
+    });
+  } else {
+    const item = document.createElement("li");
+    item.textContent = "Sin atributos extra.";
+    extrasList.append(item);
+  }
+
+  refs.purchaseProductCard.replaceChildren(img, card);
+  card.append(category, title, brand, metaList, extrasList);
 };
 
 const getSafeQuantity = () => {

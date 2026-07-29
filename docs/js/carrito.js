@@ -36,31 +36,87 @@ const getShippingEstimate = (count) => {
   return SHIPPING_BASE;
 };
 
-const buildItemMarkup = (item) => {
+const buildItemElement = (item) => {
   const lineTotal = Number(item.precio) * Number(item.quantity);
 
-  return `
-        <article class="card cart-item p-3" data-item-id="${item.id}">
-            <div class="d-flex flex-column flex-md-row gap-3 align-items-start">
-                <img src="${escapeHtml(item.imagen)}" alt="${escapeHtml(item.nombre)}">
-                <div class="flex-grow-1">
-                    <p class="text-uppercase small text-secondary fw-bold mb-1">${escapeHtml(item.categoria)}</p>
-                    <h3 class="h5 mb-1">${escapeHtml(item.nombre)}</h3>
-                    <p class="text-secondary mb-2">${escapeHtml(item.marca)}</p>
-                    <p class="mb-2">Precio unitario: <strong>${formatPrice(item.precio)}</strong></p>
-                    <div class="d-flex flex-wrap align-items-center gap-2">
-                        <label class="form-label m-0" for="qty-${item.id}">Cantidad</label>
-                        <input id="qty-${item.id}" class="form-control form-control-sm cart-qty-input" type="number" min="1" max="${item.stock}" value="${item.quantity}" data-id="${item.id}" style="width: 90px;">
-                        <button type="button" class="btn btn-sm btn-outline-danger cart-remove-button" data-id="${item.id}">Eliminar</button>
-                    </div>
-                </div>
-                <div class="text-md-end">
-                    <p class="mb-0 text-secondary small">Subtotal item</p>
-                    <p class="h5 mb-0">${formatPrice(lineTotal)}</p>
-                </div>
-            </div>
-        </article>
-    `;
+  const article = document.createElement("article");
+  article.className = "card cart-item p-3";
+  article.dataset.itemId = String(item.id);
+
+  const row = document.createElement("div");
+  row.className = "d-flex flex-column flex-md-row gap-3 align-items-start";
+
+  const image = document.createElement("img");
+  image.src = item.imagen;
+  image.alt = item.nombre;
+
+  const body = document.createElement("div");
+  body.className = "flex-grow-1";
+
+  const category = document.createElement("p");
+  category.className = "text-uppercase small text-secondary fw-bold mb-1";
+  category.textContent = item.categoria;
+
+  const title = document.createElement("h3");
+  title.className = "h5 mb-1";
+  title.textContent = item.nombre;
+
+  const brand = document.createElement("p");
+  brand.className = "text-secondary mb-2";
+  brand.textContent = item.marca;
+
+  const price = document.createElement("p");
+  price.className = "mb-2";
+  price.append(
+    document.createTextNode("Precio unitario: "),
+    Object.assign(document.createElement("strong"), {
+      textContent: formatPrice(item.precio),
+    }),
+  );
+
+  const controls = document.createElement("div");
+  controls.className = "d-flex flex-wrap align-items-center gap-2";
+
+  const qtyLabel = document.createElement("label");
+  qtyLabel.className = "form-label m-0";
+  qtyLabel.htmlFor = `qty-${item.id}`;
+  qtyLabel.textContent = "Cantidad";
+
+  const qtyInput = document.createElement("input");
+  qtyInput.id = `qty-${item.id}`;
+  qtyInput.className = "form-control form-control-sm cart-qty-input";
+  qtyInput.type = "number";
+  qtyInput.min = "1";
+  qtyInput.max = String(item.stock);
+  qtyInput.value = String(item.quantity);
+  qtyInput.dataset.id = String(item.id);
+  qtyInput.style.width = "90px";
+
+  const removeButton = document.createElement("button");
+  removeButton.type = "button";
+  removeButton.className = "btn btn-sm btn-outline-danger cart-remove-button";
+  removeButton.dataset.id = String(item.id);
+  removeButton.textContent = "Eliminar";
+
+  controls.append(qtyLabel, qtyInput, removeButton);
+  body.append(category, title, brand, price, controls);
+
+  const summary = document.createElement("div");
+  summary.className = "text-md-end";
+
+  const subtotalLabel = document.createElement("p");
+  subtotalLabel.className = "mb-0 text-secondary small";
+  subtotalLabel.textContent = "Subtotal item";
+
+  const subtotalValue = document.createElement("p");
+  subtotalValue.className = "h5 mb-0";
+  subtotalValue.textContent = formatPrice(lineTotal);
+
+  summary.append(subtotalLabel, subtotalValue);
+  row.append(image, body, summary);
+  article.append(row);
+
+  return article;
 };
 
 const updateSummary = () => {
@@ -99,7 +155,7 @@ const renderCart = () => {
   const cart = getCart();
 
   if (!cart.length) {
-    refs.cartItems.innerHTML = "";
+    refs.cartItems.replaceChildren();
     refs.cartSummaryPanel.classList.add("d-none");
     updateSummary();
     renderStatus(
@@ -110,7 +166,7 @@ const renderCart = () => {
   }
 
   refs.cartSummaryPanel.classList.remove("d-none");
-  refs.cartItems.innerHTML = cart.map((item) => buildItemMarkup(item)).join("");
+  refs.cartItems.replaceChildren(...cart.map(buildItemElement));
   updateSummary();
   bindCartEvents();
   renderStatus(

@@ -99,7 +99,7 @@ const renderCart = () => {
   const cart = getCart();
 
   if (!cart.length) {
-    refs.cartItems.innerHTML = "";
+    refs.cartItems.replaceChildren();
     refs.cartSummaryPanel.classList.add("d-none");
     updateSummary();
     renderStatus(
@@ -110,7 +110,7 @@ const renderCart = () => {
   }
 
   refs.cartSummaryPanel.classList.remove("d-none");
-  refs.cartItems.innerHTML = cart.map((item) => buildItemMarkup(item)).join("");
+  refs.cartItems.replaceChildren(...cart.map(buildItemElement));
   updateSummary();
   bindCartEvents();
   renderStatus(

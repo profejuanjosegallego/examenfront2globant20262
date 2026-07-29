@@ -18,3 +18,4 @@ Se genero el input para buscar, por ende todo el codigo de mostrar se paso como 
 Por ultimo se hizo valido los enlaces en la barra de navegacion a cada seccion de la pagina 
 
 Autor: Kevin Balvin 
+Despliegue del proyecto desde GitHub pages con la URL: https://kevinbalvin03.github.io/examenfront2globant20262/

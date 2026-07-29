@@ -1,0 +1,50 @@
+body {
+    background-color: #f0f0f0;
+    font-family: Arial;
+}
+
+#header {
+    background-color: blue;
+    color: white;
+    text-align: center;
+}
+
+#tablaProductos {
+    width: 100%;
+    background-color: white;
+}
+
+td {
+    text-align: center;
+}
+
+#footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+.banner {
+    background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 350px;
+    width: 100%;
+}
+
+.shadow-text {
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.table img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.table-hover tbody tr:hover {
+    background-color: #f1f8ff;
+}

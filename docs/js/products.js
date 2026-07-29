@@ -106,84 +106,84 @@ const reduceStockForItems = (items) => {
 const DATA_SOURCES = [
   {
     path: new URL(
-      "../../assets/data/electronics/accesories.json",
+      "../assets/data/electronics/accesories.json",
       import.meta.url,
     ),
     category: "Accesorios",
   },
   {
     path: new URL(
-      "../../assets/data/electronics/components.json",
+      "../assets/data/electronics/components.json",
       import.meta.url,
     ),
     category: "Componentes",
   },
   {
     path: new URL(
-      "../../assets/data/electronics/computers.json",
+      "../assets/data/electronics/computers.json",
       import.meta.url,
     ),
     category: "Computadores",
   },
   {
     path: new URL(
-      "../../assets/data/electronics/mobilePhones.json",
+      "../assets/data/electronics/mobilePhones.json",
       import.meta.url,
     ),
     category: "Celulares",
   },
   {
     path: new URL(
-      "../../assets/data/electronics/peripherals.json",
+      "../assets/data/electronics/peripherals.json",
       import.meta.url,
     ),
     category: "Periféricos",
   },
   {
     path: new URL(
-      "../../assets/data/electronics/storage.json",
+      "../assets/data/electronics/storage.json",
       import.meta.url,
     ),
     category: "Almacenamiento",
   },
   {
     path: new URL(
-      "../../assets/data/electrodomestics/fridges.json",
+      "../assets/data/electrodomestics/fridges.json",
       import.meta.url,
     ),
     category: "Neveras",
   },
   {
     path: new URL(
-      "../../assets/data/electrodomestics/misc.json",
+      "../assets/data/electrodomestics/misc.json",
       import.meta.url,
     ),
     category: "Otros Electrodomésticos",
   },
   {
     path: new URL(
-      "../../assets/data/electrodomestics/ovens.json",
+      "../assets/data/electrodomestics/ovens.json",
       import.meta.url,
     ),
     category: "Hornos",
   },
   {
     path: new URL(
-      "../../assets/data/electrodomestics/roombas.json",
+      "../assets/data/electrodomestics/roombas.json",
       import.meta.url,
     ),
     category: "Robots de Limpieza",
   },
   {
     path: new URL(
-      "../../assets/data/electrodomestics/vaccumCleaners.json",
+      "../assets/data/electrodomestics/vaccumCleaners.json",
       import.meta.url,
     ),
     category: "Aspiradoras",
   },
   {
     path: new URL(
-      "../../assets/data/electrodomestics/washerMachines.json",
+      "../assets/data/electrodomestics/washerMachines.json",
       import.meta.url,
     ),
     category: "Lavadoras",

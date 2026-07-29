@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TechStore</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+
+<body>
+
+
+<header id="inicio">
+
+    <h1>
+        💻 TechStore
+    </h1>
+
+
+    <p>
+        Catálogo Digital de Productos Tecnológicos
+    </p>
+
+
+    <nav>
+
+        <a href="#catalogo">
+            Catálogo
+        </a>
+
+
+        <a href="#contacto">
+            Contacto
+        </a>
+
+    </nav>
+
+
+</header>
+
+
+
+<main>
+
+    <section class="hero">
+
+        <div class="hero-text">
+
+            <h2>
+                Bienvenido a TechStore
+            </h2>
+
+            <p>
+
+                Descubre computadores, celulares,
+                periféricos y accesorios de las
+                mejores marcas.
+
+            </p>
+
+            <a href="#catalogo" class="btnHero">
+
+                Explorar catálogo
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <section>
+
+        <h2>
+            Sobre TechStore
+        </h2>
+
+
+        <p>
+            TechStore es una empresa dedicada a la comercialización
+            de productos tecnológicos como computadores, celulares,
+            periféricos, accesorios y componentes.
+        </p>
+
+    </section>
+
+
+
+    <section>
+
+        <h2>
+            Buscar productos
+        </h2>
+
+
+        <input 
+            type="text"
+            id="buscador"
+            placeholder="Buscar producto por nombre..."
+        >
+
+    </section>
+
+
+
+
+    <section>
+
+        <h2>
+            Filtrar por categoría
+        </h2>
+
+
+        <select id="filtroCategoria">
+
+
+            <option value="todas">
+                Todas las categorías
+            </option>
+
+
+            <option value="Computadores">
+                Computadores
+            </option>
+
+
+            <option value="Periféricos">
+                Periféricos
+            </option>
+
+
+            <option value="Celulares">
+                Celulares
+            </option>
+
+
+            <option value="Accesorios">
+                Accesorios
+            </option>
+
+
+            <option value="Almacenamiento">
+                Almacenamiento
+            </option>
+
+
+            <option value="Componentes">
+                Componentes
+            </option>
+
+
+        </select>
+
+
+        <button id="mostrarDisponibles">
+
+            Mostrar solo disponibles
+
+        </button>
+
+
+    </section>
+
+
+
+
+    <section>
+
+        <h2>
+            Catálogo
+        </h2>
+
+
+        <p>
+
+            Productos cargados:
+
+            <span id="contador">
+                0
+            </span>
+
+        </p>
+
+
+    </section>
+
+
+
+
+    <section id="catalogo">
+
+
+    </section>
+
+
+
+</main>
+
+
+
+
+
+<footer id="contacto">
+
+
+    <p>
+        Estudiante: Sara Beltrán
+    </p>
+
+
+    <p>
+        Grupo: Globant - CESDE
+    </p>
+
+
+    <p>
+        Año: 2026
+    </p>
+
+
+</footer>
+
+
+<button id="btnVolverInicio" class="btnVolverInicio" type="button">
+    Volver al inicio
+</button>
+
+<script src="data/productos.js"></script>
+
+<script src="js/app.js"></script>
+
+
+</body>
+
+
+</html>

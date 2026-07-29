@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo - TechStore</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/Style/style.css">
+</head>
+
+<body>
+    <header class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top py-3">
+        <div class="container">
+
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <i class="bi bi-laptop fs-3 me-2 color-rosado-oscuro"></i>
+                <span class="fw-bold fs-4">TechStore</span>
+            </a>
+
+            <span class="navbar-text d-none d-md-block mx-auto fw-semibold fs-5">
+                Catálogo de Productos
+            </span>
+
+            <button class="navbar-toggler btn-borde-rosado" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link active" href="#">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#productos">Catálogo</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main class="container my-5 flex-grow-1">
+
+        <section class="text-center mb-5">
+            <h1 class="display-5 fw-bold mb-3 color-rosado-oscuro">Bienvenido a TechStore</h1>
+            <p class="lead text-muted mx-auto" style="max-width: 800px;">
+                La empresa <strong>TechStore</strong> comercializa productos tecnológicos como computadores,
+                periféricos, dispositivos móviles, accesorios y componentes. Somos líderes en ofrecer los mejores
+                equipos del mercado; nuestra misión es brindar calidad, innovación y un rendimiento excepcional para
+                satisfacer todas tus necesidades digitales del día a día.
+            </p>
+        </section>
+
+        <section id="productos"
+            class="d-flex flex-column flex-md-row justify-content-between align-items-center mb-4 pb-3 border-bottom">
+            <h2 class="h3 fw-bold mb-3 mb-md-0">Nuestros Productos</h2>
+
+            <span class="badge rounded-pill bg-rosado-oscuro fs-6 px-4 py-2 shadow-sm">
+                <i class="bi bi-box-seam me-2"></i> Productos cargados: <span id="contador-productos">0</span>
+            </span>
+        </section>
+
+        <section id="contenedor-productos">
+            <div class="row">
+
+                <div class="col-12 mb-4">
+
+                    <div class="d-flex flex-wrap align-items-center gap-2">
+
+                        <button class="btn btn-borde-rosado" id="btn-mostrar-todos">
+                            <i class="bi bi-grid-3x3-gap-fill me-1"></i> Mostrar Todos
+                        </button>
+
+                        <div class="d-flex align-items-center gap-2 my-1">
+                            <label for="filtro-categoria" class="fw-bold color-rosado-oscuro mb-0">Categoría:</label>
+                            <select class="form-select border-secondary w-auto shadow-none" id="filtro-categoria">
+                                <option value="todas" selected>Todas</option>
+                                <option value="computadores">Computadores</option>
+                                <option value="periféricos">Periféricos</option>
+                                <option value="celulares">Celulares</option>
+                                <option value="accesorios">Accesorios</option>
+                                <option value="almacenamiento">Almacenamiento</option>
+                                <option value="componentes">Componentes</option>
+                            </select>
+                        </div>
+
+                        <button class="btn btn-borde-rosado" id="btn-ordenar-precio">
+                            <i class="bi bi-sort-down-alt me-1"></i> Ordenar por Precio
+                        </button>
+
+                        <button class="btn btn-borde-rosado" id="btn-solo-disponibles">
+                            <i class="bi bi-check2-circle me-1"></i> Solo Disponibles
+                        </button>
+
+                        <button class="btn btn-borde-rosado" id="btn-limpiar">
+                            <i class="bi bi-trash3 me-1"></i> Limpiar Tabla
+                        </button>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Categoría</th>
+                                    <th scope="col">Marca</th>
+                                    <th scope="col">Precio</th>
+                                    <th scope="col">Stock</th>
+                                    <th scope="col">Disponibilidad</th>
+                                </tr>
+                            </thead>
+                            <tbody id="root">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-rosado-oscuro text-white pt-4 pb-3 mt-auto" id="contacto">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-12">
+                    <h5 class="fw-bold mb-2">Geraldine Jaramillo</h5>
+                    <p class="mb-1">Grupo: Globant | Año: 2026</p>
+                    <p class="mb-0 small text-white-50">Cesde - Desarrollo de Software</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="js/app.js"></script>
+</body>
+
+</html>

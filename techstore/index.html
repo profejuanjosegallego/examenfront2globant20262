@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechStore - Estilo Neomorfista Suave</title>
+    
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    
+    <header class="encabezado-superior">
+        <div class="logo">
+            <span class="icono">📦</span> TechStore
+        </div>
+        <nav class="menu">
+            <a href="#">Home</a>
+            <a href="#">Products</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <main class="contenedor-principal">
+        
+        <aside class="columna-info">
+            <h2>ESTILO NEOMORFISTA SUAVE</h2>
+            <h3>Company Info</h3>
+            <p>TechStore ofrece los mejores dispositivos para estudiantes y empresas. Todo nuestro catálogo está aquí.</p>
+            <br>
+            <button id="boton-filtro" class="btn-neo">Mostrar solo disponibles</button>
+        </aside>
+
+        
+        <section class="area-catalogo">
+            <div class="cabecera-catalogo">
+                <p id="texto-contador">Total: 0 Productos</p>
+            </div>
+            
+            <div id="raiz-productos" class="grilla-tarjetas">
+               
+            </div>
+        </section>
+    </main>
+
+    <footer class="pie-pagina">
+        <p><strong>Estudiante:</strong> Darley Ramírez Garzón</p>
+        <p><strong>Instito</strong> Cesde</p>
+        <p><strong>Año:</strong> 2026</p>
+    </footer>
+
+    
+    <script src="data/productos.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

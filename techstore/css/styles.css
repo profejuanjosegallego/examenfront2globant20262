@@ -1,0 +1,136 @@
+/* Reset basico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    /* Fondo degradado suave como la imagen */
+    background: linear-gradient(135deg, #d3e5f5, #f3d4e0, #cfdef3);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+
+.encabezado-superior {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.menu a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+
+.contenedor-principal {
+    display: flex;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.columna-info {
+    width: 25%;
+}
+
+.columna-info h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.columna-info h3 {
+    margin-bottom: 10px;
+}
+
+.btn-neo {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Area de las tarjetas */
+.area-catalogo {
+    width: 75%;
+}
+
+.cabecera-catalogo {
+    text-align: right;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.grilla-tarjetas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Estilo de la tarjeta (Neomorfismo/Glass) */
+.card-neo {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    padding: 20px;
+    width: calc(33.333% - 20px);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.caja-imagen img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.card-neo h4 {
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.card-neo p {
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.caja-botones {
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn-mini {
+    background: white;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+}
+
+/* Footer */
+.pie-pagina {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    margin-top: 40px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    font-size: 14px;
+}
